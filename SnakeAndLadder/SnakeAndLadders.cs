@@ -12,33 +12,58 @@ namespace SnakeAndLadder
 
         int position = 0;
         int count = 0;
+        bool win = false;
+
+        public void setPosition(int position)
+        {
+            this.position = position;
+        }
+        public int getPosition()
+        {
+            return position;
+        }
+        public int getCount()
+        {
+            return count;
+        }
+        public void setCount(int count)
+        {
+            this.count = count;
+        }
+        public bool isWinning()
+        {
+            return win;
+        }
+        public void setWin(bool win)
+        {
+            this.win = win;
+        }
+
         Random random = new Random();
         public int DieRoll()
         {
             int diePosition = random.Next(1, 7);
-            Console.WriteLine("Position is " + this.position);
-            count++;
+            this.count++;
             return diePosition;
         }
 
         public void Game()
         {
-            while (this.position < WINNING_POSITION)
-            {
+            int dieRoll = DieRoll();
                 int option = random.Next(0, 3);
                 switch (option)
                 {
                     case NO_PLAY:
                         break;
                     case LADDER:
-                        int dieRoll = DieRoll();
-                        if (this.position + dieRoll < WINNING_POSITION)
+                        //dieRoll = DieRoll();
+                        if (this.position + dieRoll <= WINNING_POSITION)
                         {
                             this.position += dieRoll;
                         }
                         break;
                     case SNAKE:
-                        dieRoll = DieRoll();
+                        //dieRoll = DieRoll();
                         if (this.position - dieRoll < STARTING_POSITION)
                         {
                             this.position = 0;
@@ -49,8 +74,11 @@ namespace SnakeAndLadder
                         }
                         break;
                 }
+            if (this.position == WINNING_POSITION)
+            {
+                this.win = true;
             }
-            Console.WriteLine("Number of times dice was rolled : "+count);
+
         }
     }
 }
