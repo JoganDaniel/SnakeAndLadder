@@ -11,7 +11,7 @@ namespace SnakeAndLadder
         const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION = 100, STARTING_POSITION = 0;
 
         int position = 0;
-        int count = 0;
+       
 
 
         Random random = new Random();
@@ -24,7 +24,8 @@ namespace SnakeAndLadder
 
         public void Game()
         {
-
+            while (this.position < WINNING_POSITION)
+            {
                 int option = random.Next(0, 3);
                 switch (option)
                 {
@@ -49,7 +50,7 @@ namespace SnakeAndLadder
                         }
                         break;
                 }
-            
+            }
         }
     }
 }
