@@ -17,6 +17,7 @@ namespace SnakeAndLadder
         {
             int diePosition = random.Next(1, 7);
             Console.WriteLine("Position is " + this.position);
+            count++;
             return diePosition;
         }
 
@@ -49,6 +50,7 @@ namespace SnakeAndLadder
                         break;
                 }
             }
+            Console.WriteLine("Number of times dice was rolled : "+count);
         }
     }
 }
