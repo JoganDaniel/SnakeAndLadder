@@ -19,7 +19,7 @@ namespace SnakeAndLadder
                 Console.WriteLine("Player1 wins");
                 Console.WriteLine("number of die throws " + player1.getCount());
             }
-            else
+            else if(player2.isWinning() == true)
             {
                 Console.WriteLine("Player2 wins");
                 Console.WriteLine("number of die throws " + player2.getCount());

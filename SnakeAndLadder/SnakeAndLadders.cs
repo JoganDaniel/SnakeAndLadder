@@ -56,14 +56,13 @@ namespace SnakeAndLadder
                     case NO_PLAY:
                         break;
                     case LADDER:
-                        //dieRoll = DieRoll();
                         if (this.position + dieRoll <= WINNING_POSITION)
                         {
                             this.position += dieRoll;
                         }
+                        Game(); 
                         break;
                     case SNAKE:
-                        //dieRoll = DieRoll();
                         if (this.position - dieRoll < STARTING_POSITION)
                         {
                             this.position = 0;
